@@ -12,7 +12,7 @@ void opt_print(Graph &graph);
 
 int main()
 {
-    Graph graph(true, true);
+    Graph graph;
 
     set_vertices(graph);
 

@@ -12,11 +12,7 @@
 class Graph
 {
 public:
-    bool directed_;
-    bool weighted_;
     std::list<Vertex> vertices_;
-
-    Graph(bool directed, bool weighted) : directed_(directed), weighted_(weighted) {}
 
     bool add_vertex(const std::string name);
     bool add_vertex(Vertex &vertex);
@@ -29,7 +25,7 @@ private:
 
 bool Graph::add_vertex(const std::string name)
 {
-    for (std::list<Vertex>::iterator i = vertices_.begin(); i != vertices_.end(); i++)
+    for (auto i = vertices_.begin(); i != vertices_.end(); i++)
     {
         if (i->name_ == name) return false;
     }
@@ -54,7 +50,7 @@ bool Graph::set_link(Vertex *start, Vertex *end, int weight)
 
 Vertex* Graph::get_vertex(const std::string name)
 {
-    for (std::list<Vertex>::iterator i = vertices_.begin(); i != vertices_.end(); i++)
+    for (auto i = vertices_.begin(); i != vertices_.end(); i++)
     {
         if (i->name_ == name) return &*i;
     }
@@ -63,7 +59,7 @@ Vertex* Graph::get_vertex(const std::string name)
 
 void Graph::unvisit()
 {
-    for (std::list<Vertex>::iterator i = vertices_.begin(); i != vertices_.end(); i++)
+    for (auto i = vertices_.begin(); i != vertices_.end(); i++)
     {
         i->visited_ = false;
     }
